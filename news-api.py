@@ -1,6 +1,9 @@
 import requests
+import json
 
-top_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=16eabca179494fa391757fa32d70a9cd'
+with open("config.json", "r") as jsonfile:
+	data = json.load(jsonfile)
+	top_url = data['NEWS_API_URL']
 
 resp = requests.get(top_url).json()
 
